@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Animated, Image, ImageBackground, Modal, } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Animated, Image, ImageBackground, Modal, ScrollView } from 'react-native';
 import React, { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'expo-router';
 import { Vibration } from 'react-native';
@@ -289,62 +289,68 @@ const Dashboard = () => {
                     <Animated.View style={[styles.rightPanel, { transform: [{ translateX: rightSlideAnim }] }]}>
                         <View style={styles.panelContainer}>
 
+
+
                             <ImageBackground source={require('@/assets/images/woodBG4.png')} style={cosmeticsSection.container}>
-                                <Image
-                                    source={require('@/assets/images/cosmeticSign1.png')}
-                                    style={styles.cosmeticImage}
-                                    resizeMode="contain"
-                                />
-                                <TouchableOpacity  // Changed to TouchableOpacity
-                                    style={cosmeticsSection.itemCard}
-                                    onPress={() => setSelectedHat('')}  // Set selected hat on press
+                                <ScrollView>
+                                    <Image
+                                        source={require('@/assets/images/cosmeticSign1.png')}
+                                        style={styles.cosmeticImage}
+                                        resizeMode="contain"
+                                    />
+                                    <TouchableOpacity  // Changed to TouchableOpacity
+                                        style={cosmeticsSection.itemCard}
+                                        onPress={() => setSelectedHat('')}  // Set selected hat on press
 
-                                ><Image source={require('@/assets/images/noHat.png')} style={[cosmeticsSection.image, { width: 65, height: 65, marginRight: 30, left: 15 }]} />
-                                    <Text style={cosmeticsSection.itemText}>No Hat </Text>
-                                </TouchableOpacity>
+                                    ><Image source={require('@/assets/images/noHat.png')} style={[cosmeticsSection.image, { width: 65, height: 65, marginRight: 30, left: 15 }]} />
+                                        <Text style={cosmeticsSection.itemText}>No Hat </Text>
+                                    </TouchableOpacity>
 
-                                <TouchableOpacity  // Changed to TouchableOpacity
-                                    style={cosmeticsSection.itemCard}
-                                    onPress={() => setSelectedHat('cowboy')}  // Set selected hat on press
-                                >
-                                    <Image source={require('@/assets/images/cowboy1.png')} style={cosmeticsSection.image} />
-                                    <Text style={cosmeticsSection.itemText}>Cowboy Hat</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity  // Changed to TouchableOpacity
-                                    style={cosmeticsSection.itemCard}
-                                    onPress={() => setSelectedHat('santa')}  // Set selected hat on press
-                                >
-                                    <Image source={require('@/assets/images/santa2.png')} style={cosmeticsSection.image} />
-                                    <Text style={cosmeticsSection.itemText}>Santa Hat</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    style={cosmeticsSection.itemCard}
-                                    onPress={() => handleHatPress('blackhat', true)} // true means locked
-                                >
-                                    <Image source={require('@/assets/images/blackhat1.png')} style={cosmeticsSection.image} />
-                                    <Text style={cosmeticsSection.itemText}>Black Hat</Text>
-                                    <Image source={require('@/assets/images/padlock.png')} style={cosmeticsSection.lock} />
-                                </TouchableOpacity>
+                                    <TouchableOpacity  // Changed to TouchableOpacity
+                                        style={cosmeticsSection.itemCard}
+                                        onPress={() => setSelectedHat('cowboy')}  // Set selected hat on press
+                                    >
+                                        <Image source={require('@/assets/images/cowboy1.png')} style={cosmeticsSection.image} />
+                                        <Text style={cosmeticsSection.itemText}>Cowboy Hat</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity  // Changed to TouchableOpacity
+                                        style={cosmeticsSection.itemCard}
+                                        onPress={() => setSelectedHat('santa')}  // Set selected hat on press
+                                    >
+                                        <Image source={require('@/assets/images/santa2.png')} style={cosmeticsSection.image} />
+                                        <Text style={cosmeticsSection.itemText}>Santa Hat</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={cosmeticsSection.itemCard}
+                                        onPress={() => handleHatPress('blackhat', true)} // true means locked
+                                    >
+                                        <Image source={require('@/assets/images/blackhat1.png')} style={cosmeticsSection.image} />
+                                        <Text style={cosmeticsSection.itemText}>Black Hat</Text>
+                                        <Image source={require('@/assets/images/padlock.png')} style={cosmeticsSection.lock} />
+                                    </TouchableOpacity>
 
-                                <TouchableOpacity
-                                    style={cosmeticsSection.itemCard}
-                                    onPress={() => handleHatPress('salakot', true)}
-                                >
-                                    <Image source={require('@/assets/images/bambooHat.png')} style={cosmeticsSection.image} />
-                                    <Text style={cosmeticsSection.itemText}>Salakot</Text>
-                                    <Image source={require('@/assets/images/padlock.png')} style={cosmeticsSection.lock} />
-                                </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={cosmeticsSection.itemCard}
+                                        onPress={() => handleHatPress('salakot', true)}
+                                    >
+                                        <Image source={require('@/assets/images/bambooHat.png')} style={cosmeticsSection.image} />
+                                        <Text style={cosmeticsSection.itemText}>Salakot</Text>
+                                        <Image source={require('@/assets/images/padlock.png')} style={cosmeticsSection.lock} />
+                                    </TouchableOpacity>
 
-                                <TouchableOpacity
-                                    style={cosmeticsSection.itemCard}
-                                    onPress={() => handleHatPress('cat', true)}
-                                >
-                                    <Image source={require('@/assets/images/cat.png')} style={cosmeticsSection.image} />
-                                    <Text style={cosmeticsSection.itemText}>Cat Mask</Text>
-                                    <Image source={require('@/assets/images/padlock.png')} style={cosmeticsSection.lock} />
-                                </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={cosmeticsSection.itemCard}
+                                        onPress={() => handleHatPress('cat', true)}
+                                    >
+                                        <Image source={require('@/assets/images/cat.png')} style={cosmeticsSection.image} />
+                                        <Text style={cosmeticsSection.itemText}>Cat Mask</Text>
+                                        <Image source={require('@/assets/images/padlock.png')} style={cosmeticsSection.lock} />
+                                    </TouchableOpacity>
+                                </ScrollView>
 
                             </ImageBackground>
+
+
 
                         </View>
                     </Animated.View>
@@ -401,7 +407,7 @@ const Dashboard = () => {
             >
                 <View style={styles.modalContainer}>
                     <View style={[styles.modalContent, { backgroundColor: '#005BBB', borderBlockColor: '#000000ff', borderWidth: 5 }]}>
-                        <Text style={[styles.modalText, { color: '#000000ff',  }]}>Locked!</Text>
+                        <Text style={[styles.modalText, { color: '#000000ff', }]}>Locked!</Text>
                         <Text style={{ fontSize: 16, color: '#000000ff', textAlign: 'center', marginBottom: 10 }}>
                             You need to complete LESSON 1 to unlock this hat.
                         </Text>
@@ -409,7 +415,7 @@ const Dashboard = () => {
                             onPress={() => setIsLockedModalVisible(false)}
                             style={[styles.modalButton, { backgroundColor: '#ff9e20ff', borderBlockColor: '#000000ff', borderWidth: 3 }]}
                         >
-                            <Text style={[styles.modalButtonText, { color: '#000000ff',  }]}>OK</Text>
+                            <Text style={[styles.modalButtonText, { color: '#000000ff', }]}>OK</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -449,12 +455,12 @@ const styles = StyleSheet.create({
     bottomTitle: { color: 'white', fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
     exitButton: { borderColor: '#820805ff', borderWidth: 3, width: '100%', paddingVertical: 14, borderRadius: 10, alignItems: 'center', marginTop: 12 },
     exitText: { color: '#ffffffff', fontSize: 20, fontWeight: '600' },
-    modalContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-    modalContent: { width: 300, padding: 20, backgroundColor: 'white', borderRadius: 10, alignItems: 'center' },
-    modalText: { fontSize: 16, fontWeight: 'bold', marginBottom: 15, textAlign: 'center' },
+    modalContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', },
+    modalContent: { width: 300, padding: 20, backgroundColor: '#005BBB', borderRadius: 10, alignItems: 'center', borderBlockColor: '#000000ff', borderWidth: 5, },
+    modalText: { fontSize: 16, fontWeight: 'bold', marginBottom: 15, textAlign: 'center', color: '#ffffffff' },
     modalButtons: { flexDirection: 'row', justifyContent: 'space-around', width: '100%' },
-    modalButton: { backgroundColor: '#007AFF', padding: 10, borderRadius: 5, width: '40%', alignItems: 'center' },
-    modalButtonText: { color: 'white', fontWeight: 'bold' },
+    modalButton: { backgroundColor: '#ffa600ff', padding: 10, borderRadius: 5, width: '40%', alignItems: 'center', borderBlockColor: '#000000ff', borderWidth: 3, },
+    modalButtonText: { color: 'black', fontWeight: 'bold' },
     menuButton: { width: '100%', backgroundColor: '#215287ff', borderColor: '#000000ff', borderWidth: 2, borderRadius: 10, paddingVertical: 14, marginVertical: 6, alignItems: 'center', justifyContent: 'center' },
     menuText: { color: 'white', fontSize: 18, fontWeight: 'bold' },
     lessonText: { color: '#000000', fontWeight: 'bold', textAlign: 'center', fontSize: 17, },
